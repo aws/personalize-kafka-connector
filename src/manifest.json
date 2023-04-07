@@ -1,0 +1,28 @@
+{
+  "name" : "kafka-connect-aws-personalize",
+  "version" : "1.0.0.",
+  "title" : "Kafka Connect Personalize",
+  "description" : "A Kafka Connect plugin for Amazon Personalize",
+  "owner" : {
+    "username" : "aws",
+    "name" : "Amazon, Inc."
+  },
+  "support" : {
+    "summary" : "This connector is open source."
+  },
+  "tags" : [ "Personalize" ],
+  "features" : {
+    "supported_encodings" : [ "any" ],
+    "single_message_transforms" : true,
+    "confluent_control_center_integration" : true,
+    "kafka_connect_api" : true
+  },
+  "documentation_url" : "https://aws.com",
+  "docker_image" : { },
+  "license" : [ {
+    "name" : "Apache 2 License",
+    "url" : "https://aws.amazon.com/apache-2-0/"
+  } ],
+  "component_types" : [ "sink" ],
+  "release_date" : "2022-11-02"
+}
