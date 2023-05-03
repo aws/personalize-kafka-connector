@@ -24,6 +24,7 @@ import java.util.Map;
  * This is main class which used for Sink Task functionality by overriding required methods.
  */
 public class PersonlizeSinkTask extends SinkTask {
+    private static final String USER_AGENT_PREFIX = "PersonalizeKafkaSinkConnector";
     private static final Logger log = LoggerFactory.getLogger(PersonlizeSinkTask.class);
 
     ErrantRecordReporter reporter;
@@ -53,6 +54,7 @@ public class PersonlizeSinkTask extends SinkTask {
     private void initWriter() {
         ClientConfiguration configuration = new ClientConfiguration()
                 .withRetryPolicy(new RetryPolicy(PredefinedRetryPolicies.DEFAULT_RETRY_CONDITION, PredefinedRetryPolicies.DEFAULT_BACKOFF_STRATEGY,config.getMaxRetries(),true))
+                .withUserAgentPrefix(USER_AGENT_PREFIX)
                 .withMaxErrorRetry(config.getMaxRetries());
 
         AmazonPersonalizeEvents client = AmazonPersonalizeEventsClient.builder()
