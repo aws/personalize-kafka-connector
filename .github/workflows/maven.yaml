@@ -1,4 +1,5 @@
 name: maven
+permissions: { }
 on:
   push:
     branches:
@@ -11,8 +12,8 @@ jobs:
     name: Build
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2022, macos-12]
-        java: [8, 11]
+        os: [ ubuntu-20.04, windows-2022, macos-12 ]
+        java: [ 8, 11 ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
