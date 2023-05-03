@@ -20,4 +20,5 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
+          cache: 'maven'
       - run: mvn clean install --errors --batch-mode
