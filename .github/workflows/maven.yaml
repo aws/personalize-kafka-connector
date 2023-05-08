@@ -1,0 +1,25 @@
+name: maven
+permissions: { }
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Build
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, windows-2022, macos-12 ]
+        java: [ 8, 11 ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          cache: 'maven'
+      - run: mvn clean install --errors --batch-mode
